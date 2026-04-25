@@ -3,598 +3,740 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Erfan Zarafshan | Economics & Computer Science · LSU</title>
-  <meta name="description" content="PhD student in Economics and M.Sc. in Computer Science at Louisiana State University. Research at the intersection of AI, data science, and economics."/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <title>Erfan Zarafshan</title>
+  <meta name="description" content="PhD student in Economics and M.Sc. in Computer Science at Louisiana State University."/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --navy:   #0d1b2a;
-      --navy2:  #132235;
-      --accent: #2e86c1;
-      --gold:   #d4ac0d;
-      --gold2:  #f0c929;
-      --cream:  #faf8f3;
-      --paper:  #f2efe8;
-      --ink:    #1c1c1c;
-      --muted:  #6e6e6e;
-      --border: #e0dbd0;
-      --serif:  'Cormorant Garamond', Georgia, serif;
-      --mono:   'DM Mono', monospace;
-      --sans:   'Inter', sans-serif;
-    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--cream); color: var(--ink); font-family: var(--sans); line-height: 1.7; overflow-x: hidden; }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--navy); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
-    /* NAV */
+    :root {
+      --white:  #ffffff;
+      --off:    #f7f6f4;
+      --ink:    #111111;
+      --mid:    #555555;
+      --light:  #999999;
+      --rule:   #e2e2e2;
+      --link:   #1a3a5c;
+      --serif:  'Lora', Georgia, serif;
+      --sans:   'Source Sans 3', system-ui, sans-serif;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SIDEBAR ── */
+    aside {
+      width: 240px;
+      min-width: 240px;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      padding: 3.5rem 2rem;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      z-index: 10;
+    }
+
+    .profile-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      margin-bottom: 1.2rem;
+      filter: grayscale(20%);
+    }
+
+    .sidebar-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+    }
+
+    .sidebar-title {
+      font-size: 0.75rem;
+      color: var(--light);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200; height: 56px;
-      display: flex; align-items: center; justify-content: space-between; padding: 0 3rem;
-      background: rgba(13,27,42,0.96); backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212,172,13,0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+      margin-bottom: auto;
     }
-    .nav-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: #fff; text-decoration: none; }
-    .nav-logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
 
-    /* HERO */
-    #hero { min-height: 100vh; display: grid; grid-template-columns: 55% 45%; background: var(--navy); }
-    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 5rem 6rem; position: relative; }
-    .hero-left::after { content: ''; position: absolute; top: 0; bottom: 0; right: 0; width: 1px; background: linear-gradient(to bottom, transparent, rgba(212,172,13,0.25) 30%, rgba(212,172,13,0.25) 70%, transparent); }
-    .eyebrow { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2rem; }
-    .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
-    .eyebrow-txt { font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
-    h1 { font-family: var(--serif); font-size: clamp(3rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.05; color: #fff; margin-bottom: 1rem; }
-    h1 em { font-style: italic; color: rgba(255,255,255,0.5); font-weight: 300; }
-    .tagline { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; }
-    .bio { font-size: 0.9rem; color: rgba(255,255,255,0.68); max-width: 490px; line-height: 1.9; margin-bottom: 2.8rem; }
-    .bio strong { color: rgba(255,255,255,0.9); font-weight: 500; }
-    .bio em { color: var(--gold); font-style: italic; }
-    .ctas { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.4rem; font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 3px; transition: all 0.22s; }
-    .btn-gold { background: var(--gold); color: var(--navy); border: 1px solid var(--gold); font-weight: 500; }
-    .btn-gold:hover { background: var(--gold2); }
-    .btn-ghost { background: transparent; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.18); }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); }
-    .stat span { display: block; }
-    .stat-n { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; }
-    .stat-l { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-top: 0.25rem; }
-
-    /* HERO RIGHT */
-    .hero-right { position: relative; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
-    .hero-right::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 10%, rgba(46,134,193,0.15) 0%, transparent 60%); }
-    .photo-bg { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 68%; height: 80%; background: linear-gradient(to top, rgba(46,134,193,0.1), transparent); border-radius: 180px 180px 0 0; }
-    .hero-photo { width: 78%; max-width: 330px; display: block; position: relative; z-index: 2; margin-top: 56px; filter: grayscale(10%) contrast(1.05); }
-    .side-links { position: absolute; right: 1.8rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.9rem; z-index: 10; }
-    .side-links a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.58rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: all 0.2s; }
-    .side-links a:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* CHIPS */
-    .chips-bar { background: var(--navy2); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.8rem 6rem; display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
-    .chips-lbl { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.22); white-space: nowrap; }
-    .chip { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.48); padding: 0.22rem 0.75rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; white-space: nowrap; }
-    .chip.hi { border-color: rgba(212,172,13,0.35); color: var(--gold); }
-
-    /* SECTION BASE */
-    section { padding: 5.5rem 6rem; }
-    .slabel { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem; }
-    .slabel-line { width: 22px; height: 1px; background: var(--gold); flex-shrink: 0; }
-    .slabel-txt { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
-    .stitle { font-family: var(--serif); font-size: clamp(1.9rem, 3.2vw, 2.7rem); font-weight: 300; margin-bottom: 2.8rem; line-height: 1.1; }
-    .stitle em { font-style: italic; color: var(--muted); }
-
-    /* RESEARCH */
-    #research { background: var(--cream); }
-    .r-intro { font-family: var(--serif); font-size: 1.1rem; font-style: italic; color: var(--muted); max-width: 660px; line-height: 1.7; margin-bottom: 2.8rem; }
-    .papers { display: grid; gap: 1.6rem; }
-    .paper { border: 1px solid var(--border); border-radius: 6px; padding: 1.8rem 2rem; background: #fff; display: grid; grid-template-columns: 64px 1fr; gap: 1.8rem; align-items: start; transition: border-color 0.22s, box-shadow 0.22s; }
-    .paper:hover { border-color: var(--accent); box-shadow: 0 5px 28px rgba(30,82,118,0.07); }
-    .p-year { font-family: var(--serif); font-size: 1.55rem; font-weight: 300; color: var(--gold); line-height: 1; display: block; text-align: center; }
-    .p-n { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); display: block; text-align: center; margin-top: 0.2rem; }
-    .pstatus { display: inline-block; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 2px; margin-bottom: 0.7rem; }
-    .pub { background: #edf7ed; color: #2a7d2a; border: 1px solid #b6ddb6; }
-    .wip { background: #fff8e1; color: #a56300; border: 1px solid #ffd97f; }
-    .ptitle { font-family: var(--serif); font-size: 1.18rem; font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: 0.4rem; }
-    .pauthors { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-bottom: 0.25rem; }
-    .pauthors strong { color: var(--accent); }
-    .pjrnl { font-family: var(--serif); font-size: 0.83rem; font-style: italic; color: var(--muted); margin-bottom: 0.9rem; }
-    .pabs { font-size: 0.84rem; color: #555; line-height: 1.75; margin-bottom: 0.9rem; }
-    .ptags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-    .tag { font-family: var(--mono); font-size: 0.58rem; padding: 0.16rem 0.52rem; border-radius: 2px; background: #eef2f9; color: var(--accent); border: 1px solid #ccddf5; }
-
-    /* ABOUT */
-    #about { background: var(--navy); }
-    #about .stitle { color: #fff; }
-    #about .stitle em { color: rgba(255,255,255,0.35); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-    .atext p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.9; margin-bottom: 1.1rem; }
-    .atext strong { color: #fff; font-weight: 500; }
-    .atext em { color: var(--gold); font-style: italic; }
-    .jrn-lbl { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
-    .timeline { position: relative; padding-left: 1.4rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(212,172,13,0.1)); }
-    .tl { position: relative; padding: 0 0 1.8rem 1.8rem; }
-    .tl::before { content: ''; position: absolute; left: -4.5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--gold); background: var(--navy); }
-    .tl.now::before { background: var(--gold); }
-    .tl-yr { font-family: var(--mono); font-size: 0.6rem; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 0.2rem; }
-    .tl-deg { font-family: var(--serif); font-size: 0.98rem; font-weight: 500; color: #fff; line-height: 1.3; }
-    .tl-uni { font-size: 0.78rem; color: rgba(255,255,255,0.4); font-style: italic; margin-top: 0.12rem; }
-    .int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 2rem; }
-    .int-card { padding: 0.65rem 0.9rem; border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; font-family: var(--mono); font-size: 0.63rem; color: rgba(255,255,255,0.5); transition: all 0.2s; }
-    .int-card:hover { border-color: rgba(212,172,13,0.3); color: var(--gold); }
-    .int-card span { display: block; color: rgba(255,255,255,0.22); font-size: 0.54rem; margin-top: 0.08rem; }
-
-    /* CV */
-    #cv { background: var(--paper); }
-    .cv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-    .cv-block { margin-bottom: 2.8rem; }
-    .cv-blk-ttl { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); margin-bottom: 1.4rem; }
-    .cv-entry { margin-bottom: 1.5rem; }
-    .cv-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.12rem; }
-    .cv-ttl { font-family: var(--serif); font-size: 0.97rem; font-weight: 500; color: var(--ink); line-height: 1.3; }
-    .cv-yr { font-family: var(--mono); font-size: 0.63rem; color: var(--gold); white-space: nowrap; flex-shrink: 0; }
-    .cv-sub { font-size: 0.8rem; color: var(--muted); font-style: italic; }
-    .cv-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; line-height: 1.6; }
-    .skill-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
-    .stag { font-family: var(--mono); font-size: 0.6rem; padding: 0.22rem 0.65rem; border: 1px solid var(--border); border-radius: 3px; color: var(--muted); background: #fff; }
-
-    /* TEACHING */
-    #teaching { background: var(--cream); }
-    .t-list { display: grid; gap: 0.9rem; }
-    .t-row { display: grid; grid-template-columns: 95px 1fr 80px; align-items: center; gap: 1.4rem; padding: 1.1rem 1.5rem; border: 1px solid var(--border); border-radius: 5px; background: #fff; transition: border-color 0.2s; }
-    .t-row:hover { border-color: var(--accent); }
-    .tbadge { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.55rem; border-radius: 2px; text-align: center; }
-    .tbadge.ta { background: #eef2f9; color: var(--accent); border: 1px solid #c5d8f2; }
-    .tbadge.ins { background: #fff8e1; color: #a56300; border: 1px solid #ffd97f; }
-    .t-crs { font-family: var(--serif); font-size: 0.98rem; font-weight: 500; }
-    .t-dept { font-size: 0.76rem; color: var(--muted); font-style: italic; }
-    .t-yr { font-family: var(--mono); font-size: 0.66rem; color: var(--muted); text-align: right; }
-
-    /* PROJECTS */
-    #projects { background: var(--navy); }
-    #projects .stitle { color: #fff; }
-    #projects .stitle em { color: rgba(255,255,255,0.3); }
-    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.4rem; }
-    .pcard { border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; background: rgba(255,255,255,0.025); overflow: hidden; transition: border-color 0.22s, transform 0.22s; }
-    .pcard:hover { border-color: rgba(212,172,13,0.28); transform: translateY(-4px); }
-    .pcard-top { padding: 1.3rem 1.4rem; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .p-ico { font-size: 1.4rem; }
-    .p-lng { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.28); }
-    .pcard-body { padding: 1.3rem 1.4rem; }
-    .pc-title { font-family: var(--serif); font-size: 1.02rem; font-weight: 500; color: #fff; margin-bottom: 0.45rem; }
-    .pc-desc { font-size: 0.8rem; color: rgba(255,255,255,0.48); line-height: 1.7; margin-bottom: 0.9rem; }
-    .ptag { font-family: var(--mono); font-size: 0.56rem; padding: 0.16rem 0.48rem; border: 1px solid rgba(255,255,255,0.09); border-radius: 2px; color: rgba(255,255,255,0.38); }
-
-    /* BLOG */
-    #blog { background: var(--paper); }
-    .blog-list { display: grid; gap: 1.3rem; }
-    .bitem { display: grid; grid-template-columns: 65px 1fr; gap: 1.6rem; padding: 1.4rem; border: 1px solid var(--border); border-radius: 5px; background: #fff; text-decoration: none; color: inherit; transition: border-color 0.2s; }
-    .bitem:hover { border-color: var(--accent); }
-    .bdate { text-align: center; border-right: 1px solid var(--border); padding-right: 1.6rem; }
-    .bmo { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-    .bdy { font-family: var(--serif); font-size: 1.9rem; font-weight: 300; color: var(--ink); line-height: 1; }
-    .byr { font-family: var(--mono); font-size: 0.56rem; color: var(--muted); }
-    .btitle { font-family: var(--serif); font-size: 1.02rem; font-weight: 500; margin-bottom: 0.35rem; }
-    .bexc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-    .btags { display: flex; gap: 0.35rem; margin-top: 0.7rem; }
-
-    /* CONTACT */
-    #contact { background: var(--navy); position: relative; overflow: hidden; }
-    #contact::before { content: ''; position: absolute; top: -180px; right: -180px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(46,134,193,0.07) 0%, transparent 70%); pointer-events: none; }
-    #contact .stitle { color: #fff; }
-    #contact .stitle em { color: rgba(255,255,255,0.3); }
-    .ct-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-    .ct-intro { font-family: var(--serif); font-size: 1.25rem; font-style: italic; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 2.2rem; }
-    .ct-row { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .ct-ico { width: 28px; text-align: center; color: var(--gold); font-size: 0.85rem; flex-shrink: 0; }
-    .ct-key { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.28); min-width: 65px; }
-    .ct-val { font-size: 0.86rem; color: rgba(255,255,255,0.65); }
-    .ct-val a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
-    .ct-val a:hover { color: var(--gold); }
-    .soc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 2.2rem; }
-    .sbtn { display: flex; align-items: center; gap: 0.55rem; padding: 0.7rem 0.9rem; border: 1px solid rgba(255,255,255,0.09); border-radius: 4px; text-decoration: none; transition: all 0.2s; }
-    .sbtn:hover { border-color: var(--gold); background: rgba(212,172,13,0.05); }
-    .sb-ico { font-size: 0.95rem; }
-    .sb-lbl { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.42); }
-    .sb-hdl { font-size: 0.76rem; color: rgba(255,255,255,0.65); display: block; margin-top: 0.08rem; }
-    .status-box { border: 1px solid rgba(212,172,13,0.18); border-radius: 6px; padding: 1.6rem; background: rgba(212,172,13,0.025); }
-    .sb-ttl { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
-    .sb-list { list-style: none; }
-    .sb-list li { display: flex; align-items: center; gap: 0.55rem; font-size: 0.83rem; color: rgba(255,255,255,0.55); padding: 0.45rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .sb-list li:last-child { border-bottom: none; }
-    .sdot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-
-    /* FOOTER */
-    footer { background: #060e18; text-align: center; padding: 1.4rem; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.18); }
-    footer a { color: rgba(212,172,13,0.45); text-decoration: none; }
-    footer a:hover { color: var(--gold); }
-
-    /* RESPONSIVE */
-    @media (max-width: 960px) {
-      #hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 2rem 3rem; }
-      .hero-right { height: 45vh; }
-      .side-links { display: none; }
-      section { padding: 4rem 2rem; }
-      .chips-bar { padding: 0.8rem 2rem; }
-      .about-grid, .cv-grid, .ct-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .paper { grid-template-columns: 1fr; }
-      .p-year, .p-n { display: none; }
-      .t-row { grid-template-columns: 85px 1fr; }
-      .t-yr { display: none; }
-      nav { padding: 0 1.2rem; }
-      .nav-links { gap: 1.2rem; }
+    nav a {
+      font-size: 0.8rem;
+      color: var(--mid);
+      text-decoration: none;
+      padding: 0.3rem 0;
+      transition: color 0.15s;
+      letter-spacing: 0.01em;
     }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .stats { gap: 1.5rem; }
-      .proj-grid, .soc-grid { grid-template-columns: 1fr; }
+
+    nav a:hover { color: var(--ink); }
+
+    .sidebar-links {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sidebar-links a {
+      font-size: 0.75rem;
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .sidebar-links a:hover { color: var(--link); }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      margin-left: 240px;
+      max-width: 680px;
+      padding: 5rem 4rem 6rem;
+      width: 100%;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      margin-bottom: 5rem;
+    }
+
+    section:first-child { margin-top: 0; }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+      font-family: var(--sans);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ── INTRO ── */
+    #intro h1 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    #intro h1 em {
+      font-style: italic;
+      color: var(--mid);
+    }
+
+    #intro p {
+      font-size: 0.97rem;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      max-width: 560px;
+    }
+
+    #intro p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .contact-line {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-line a {
+      font-size: 0.8rem;
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .contact-line a:hover { border-color: var(--link); }
+
+    /* ── RESEARCH ── */
+    .paper-list { display: flex; flex-direction: column; gap: 2.5rem; }
+
+    .paper {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0 1.5rem;
+    }
+
+    .paper-year {
+      font-family: var(--serif);
+      font-size: 0.8rem;
+      color: var(--light);
+      padding-top: 0.15rem;
+      font-style: italic;
+    }
+
+    .paper-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+
+    .paper-meta {
+      font-size: 0.78rem;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .paper-meta strong { color: var(--mid); font-weight: 400; }
+
+    .paper-abstract {
+      font-size: 0.84rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+
+    .paper-status {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── CV ENTRIES ── */
+    .cv-group { margin-bottom: 2.5rem; }
+
+    .cv-group-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 1.2rem;
+    }
+
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .cv-year {
+      font-size: 0.78rem;
+      color: var(--light);
+      padding-top: 0.1rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .cv-title {
+      font-size: 0.92rem;
+      color: var(--ink);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    .cv-sub {
+      font-size: 0.8rem;
+      color: var(--mid);
+      margin-top: 0.1rem;
+      line-height: 1.5;
+    }
+
+    .cv-desc {
+      font-size: 0.78rem;
+      color: var(--light);
+      margin-top: 0.15rem;
+      line-height: 1.5;
+    }
+
+    /* ── TEACHING ── */
+    .teaching-entry {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    /* ── SKILLS ── */
+    .skill-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0.6rem 1.5rem;
+      margin-bottom: 0.6rem;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-size: 0.75rem;
+      color: var(--light);
+    }
+
+    .skill-val {
+      font-size: 0.84rem;
+      color: var(--mid);
+    }
+
+    /* ── BLOG ── */
+    .blog-entry {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .blog-date {
+      font-size: 0.78rem;
+      color: var(--light);
+      font-style: italic;
+      line-height: 1.5;
+      padding-top: 0.1rem;
+    }
+
+    .blog-title {
+      font-size: 0.92rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .blog-title a {
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .blog-title a:hover { border-color: var(--ink); }
+
+    .blog-excerpt {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0.8rem 1.5rem;
+      align-items: baseline;
+    }
+
+    .ct-key {
+      font-size: 0.75rem;
+      color: var(--light);
+    }
+
+    .ct-val {
+      font-size: 0.88rem;
+      color: var(--mid);
+    }
+
+    .ct-val a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+
+    .ct-val a:hover { border-color: var(--link); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      font-size: 0.72rem;
+      color: var(--light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      body { flex-direction: column; }
+      aside {
+        position: relative;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+      }
+      .profile-photo { margin-bottom: 0; width: 56px; height: 56px; }
+      .sidebar-name { margin-bottom: 0; }
+      nav { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0; }
+      .sidebar-links { margin-top: 0; flex-direction: row; flex-wrap: wrap; }
+      main { margin-left: 0; padding: 2.5rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="#hero">Erfan <span>Zarafshan</span></a>
-  <ul class="nav-links">
-    <li><a href="#research">Research</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#cv">CV</a></li>
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<!-- ── SIDEBAR ── -->
+<aside>
+  <img
+    class="profile-photo"
+    src="https://www.lsu.edu/business/images/faculty-and-staff/zarafshan-erfan-500x700-2.jpg"
+    alt="Erfan Zarafshan"
+    onerror="this.style.display='none'"/>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <div class="eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-txt">PhD Candidate · LSU · Baton Rouge, Louisiana</span>
-    </div>
-    <h1>Erfan<br><em>Zarafshan</em></h1>
-    <p class="tagline">Economics of AI &amp; Computational Social Science</p>
-    <p class="bio">
-      PhD student in <strong>Economics</strong> and M.Sc. student in <strong>Computer Science</strong> at Louisiana State University. My research explores the <em>economics of AI and data science</em> — studying how intelligent systems reshape markets, incentives, and organisational decision-making.
+  <div class="sidebar-name">Erfan Zarafshan</div>
+  <div class="sidebar-title">
+    PhD Student, Economics<br>
+    M.Sc. Student, Computer Science<br>
+    Louisiana State University
+  </div>
+
+  <nav>
+    <a href="#research">Research</a>
+    <a href="#about">About</a>
+    <a href="#cv">CV</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#projects">Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="sidebar-links">
+    <a href="mailto:ezaraf1@lsu.edu">ezaraf1@lsu.edu</a>
+    <a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <a href="https://github.com/ErfanZarafshan" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/erfanzarafshan" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/ErfanZarafshan" target="_blank">Twitter / X</a>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<main>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <h1>Economics<br><em>meets computation.</em></h1>
+    <p>
+      I am a PhD student in Economics and M.Sc. student in Computer Science at
+      <strong>Louisiana State University</strong>. My research sits at the
+      intersection of artificial intelligence and economics — studying how data,
+      algorithms, and intelligent systems reshape markets, organisations, and
+      decision-making.
     </p>
-    <div class="ctas">
-      <a href="cv.pdf" class="btn btn-gold">↓ Download CV</a>
-      <a href="#research" class="btn btn-ghost">View Research</a>
-      <a href="mailto:ezaraf1@lsu.edu" class="btn btn-ghost">Get in Touch</a>
+    <p>
+      My background spans mechanical engineering, business administration, and
+      now economics and computer science — an unusual path that shapes how I
+      think about problems.
+    </p>
+    <div class="contact-line">
+      <a href="cv.pdf">Download CV</a>
+      <a href="mailto:ezaraf1@lsu.edu">Email me</a>
+      <a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank">Google Scholar</a>
     </div>
-    <div class="stats">
-      <div class="stat"><span class="stat-n">32+</span><span class="stat-l">Citations</span></div>
-      <div class="stat"><span class="stat-n">6</span><span class="stat-l">Publications</span></div>
-      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Degrees</span></div>
-      <div class="stat"><span class="stat-n">1.4K+</span><span class="stat-l">Reads</span></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="photo-bg"></div>
-    <img class="hero-photo"
-      src="https://www.lsu.edu/business/images/faculty-and-staff/zarafshan-erfan-500x700-2.jpg"
-      alt="Erfan Zarafshan"
-      onerror="this.style.display='none'"/>
-    <div class="side-links">
-      <a href="https://github.com/ErfanZarafshan" target="_blank" title="GitHub">GH</a>
-      <a href="https://linkedin.com/in/erfanzarafshan" target="_blank" title="LinkedIn">Li</a>
-      <a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank" title="Google Scholar">GS</a>
-      <a href="https://twitter.com/ErfanZarafshan" target="_blank" title="Twitter/X">𝕏</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- CHIPS -->
-<div class="chips-bar">
-  <span class="chips-lbl">Research →</span>
-  <span class="chip hi">Economics of AI</span>
-  <span class="chip hi">Data Science</span>
-  <span class="chip">Computational Economics</span>
-  <span class="chip">Rough Set Theory</span>
-  <span class="chip">Soft Computing</span>
-  <span class="chip">Decision Science</span>
-  <span class="chip">Behavioural Economics</span>
-  <span class="chip">Machine Learning</span>
-  <span class="chip">Game Theory</span>
-</div>
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-label">Research</div>
+    <div class="paper-list">
 
-<!-- RESEARCH -->
-<section id="research">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">01 · Publications & Working Papers</span></div>
-  <h2 class="stitle">Research <em>Output</em></h2>
-  <p class="r-intro">My published work applies soft computing and decision-theoretic frameworks to management and service economics. My current doctoral research focuses on the economics of artificial intelligence and computational decision-making.</p>
-  <div class="papers">
-
-    <div class="paper">
-      <div><span class="p-year">2021</span><span class="p-n">#01</span></div>
-      <div>
-        <span class="pstatus pub">● Published</span>
-        <div class="ptitle">Resource Planning System for Organisations: A Soft Computing Approach</div>
-        <div class="pauthors"><strong>Erfan Zarafshan</strong> · Sina Gholami · Reza Sheikh · Shib Sankar Sana</div>
-        <div class="pjrnl">International Journal of Services, Economics and Management · Inderscience · Vol. 12(3), pp. 272–293</div>
-        <div class="pabs">Develops a soft computing framework for organisational resource planning, combining fuzzy logic and heuristic methods to model uncertainty in complex service systems — offering a tractable alternative to rigid optimisation models in incomplete-information environments.</div>
-        <div class="ptags"><span class="tag">Soft Computing</span><span class="tag">Resource Planning</span><span class="tag">Service Economics</span><span class="tag">Operations Research</span></div>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div><span class="p-year">2021</span><span class="p-n">#02</span></div>
-      <div>
-        <span class="pstatus pub">● Published</span>
-        <div class="ptitle">The Analysis and Interpretation of Quality Cost Using Rough Set Theory: A Case Study from the Ceramic Industry</div>
-        <div class="pauthors"><strong>Erfan Zarafshan</strong> · Samira Rezaei Toroghi · Reza Sheikh · Shib Sankar Sana</div>
-        <div class="pjrnl">International Journal of Service and Computing Oriented Manufacturing · Inderscience · Vol. 4(1), pp. 11–31</div>
-        <div class="pabs">Applies rough set theory to analyse and interpret quality cost structures in manufacturing. Using data from the ceramic industry, the paper identifies cost drivers and decision rules supporting quality management under real-world uncertainty and data imprecision.</div>
-        <div class="ptags"><span class="tag">Rough Set Theory</span><span class="tag">Quality Cost</span><span class="tag">Manufacturing</span><span class="tag">Decision Analysis</span></div>
-      </div>
-    </div>
-
-    <div class="paper">
-      <div><span class="p-year">WIP</span><span class="p-n">#03</span></div>
-      <div>
-        <span class="pstatus wip">◐ Working Paper</span>
-        <div class="ptitle">[Doctoral Research: Add Your Dissertation Chapter Title Here]</div>
-        <div class="pauthors"><strong>Erfan Zarafshan</strong></div>
-        <div class="pjrnl">Work in Progress · Department of Economics, Louisiana State University</div>
-        <div class="pabs">Doctoral research on the economics of artificial intelligence — examining AI adoption dynamics, labour market implications, and firm-level productivity in data-driven industries. Add your specific research question and abstract when ready.</div>
-        <div class="ptags"><span class="tag">Economics of AI</span><span class="tag">Data Science</span><span class="tag">CS/Econ Interface</span></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">02 · Background & Academic Journey</span></div>
-  <h2 class="stitle">About <em>Me</em></h2>
-  <div class="about-grid">
-    <div class="atext">
-      <p>I am a <strong>PhD student in Economics</strong> and <strong>M.Sc. student in Computer Science</strong> at Louisiana State University's E. J. Ourso College of Business. My research sits at the frontier of economics and computation — using methods from <em>machine learning, rough set theory, and data science</em> to address questions in business economics, decision science, and AI markets.</p>
-      <p>My academic trajectory is deliberately interdisciplinary. I began with a <strong>B.Sc. in Mechanical Engineering</strong> at Babol Noshirvani University of Technology, Iran, which gave me rigorous quantitative and systems-thinking foundations. I then pivoted to management and social science, earning an <strong>M.Sc. in Business Administration</strong> from Shahrood University of Technology, where I began applying soft computing to economic and operational problems — producing peer-reviewed publications cited over 30 times.</p>
-      <p>At LSU, I am simultaneously pursuing a <strong>PhD in Economics</strong> and an <strong>M.Sc. in Computer Science</strong> — building the dual expertise needed to work rigorously on the economics of artificial intelligence, algorithmic decision-making, and data-driven policy analysis.</p>
-      <p>My published work has accumulated <em>32+ citations</em> and 1,400+ reads on ResearchGate, and I am actively developing my doctoral research agenda on AI economics and its implications for markets, organisations, and public policy.</p>
-    </div>
-    <div>
-      <div class="jrn-lbl">Academic Journey</div>
-      <div class="timeline">
-        <div class="tl now">
-          <div class="tl-yr">2023 – Present</div>
-          <div class="tl-deg">PhD in Economics + M.Sc. in Computer Science</div>
-          <div class="tl-uni">Louisiana State University · Baton Rouge, Louisiana</div>
-        </div>
-        <div class="tl">
-          <div class="tl-yr">20XX – 20XX</div>
-          <div class="tl-deg">M.Sc. in Business Administration</div>
-          <div class="tl-uni">Shahrood University of Technology · Iran</div>
-        </div>
-        <div class="tl">
-          <div class="tl-yr">20XX – 20XX</div>
-          <div class="tl-deg">B.Sc. in Mechanical Engineering</div>
-          <div class="tl-uni">Babol Noshirvani University of Technology (NIT) · Iran</div>
-        </div>
-      </div>
-      <div class="jrn-lbl" style="margin-top:2.5rem;">Research Interests</div>
-      <div class="int-grid">
-        <div class="int-card">Economics of AI <span>Primary focus</span></div>
-        <div class="int-card">Computational Methods <span>ML & algorithms</span></div>
-        <div class="int-card">Rough Set Theory <span>Decision analysis</span></div>
-        <div class="int-card">Soft Computing <span>Fuzzy systems</span></div>
-        <div class="int-card">Behavioural Economics <span>Decision science</span></div>
-        <div class="int-card">Market Design <span>Game theory</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CV -->
-<section id="cv">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">03 · Curriculum Vitae</span></div>
-  <h2 class="stitle">Curriculum <em>Vitae</em></h2>
-  <div style="margin-bottom:2.5rem;"><a href="cv.pdf" class="btn" style="background:var(--navy);color:#fff;border:1px solid var(--navy);">↓ Download Full CV (PDF)</a></div>
-  <div class="cv-grid">
-    <div>
-      <div class="cv-block">
-        <div class="cv-blk-ttl">Education</div>
-        <div class="cv-entry">
-          <div class="cv-head"><div class="cv-ttl">PhD in Economics</div><div class="cv-yr">2023 –</div></div>
-          <div class="cv-sub">Louisiana State University · E. J. Ourso College of Business</div>
-          <div class="cv-desc">Dissertation: Economics of AI &amp; Data Science · Advisor: [Add Name]</div>
-        </div>
-        <div class="cv-entry">
-          <div class="cv-head"><div class="cv-ttl">M.Sc. in Computer Science</div><div class="cv-yr">2023 –</div></div>
-          <div class="cv-sub">Louisiana State University</div>
-        </div>
-        <div class="cv-entry">
-          <div class="cv-head"><div class="cv-ttl">M.Sc. in Business Administration</div><div class="cv-yr">20XX</div></div>
-          <div class="cv-sub">Shahrood University of Technology · Iran</div>
-        </div>
-        <div class="cv-entry">
-          <div class="cv-head"><div class="cv-ttl">B.Sc. in Mechanical Engineering</div><div class="cv-yr">20XX</div></div>
-          <div class="cv-sub">Babol Noshirvani University of Technology (NIT) · Iran</div>
-        </div>
-      </div>
-      <div class="cv-block">
-        <div class="cv-blk-ttl">Publications</div>
-        <div class="cv-entry">
-          <div class="cv-ttl" style="font-size:0.88rem;line-height:1.4;">"Resource planning system for organisations — a soft computing approach"</div>
-          <div class="cv-sub">IJSEM, 2021 · Vol. 12(3), pp. 272–293</div>
-        </div>
-        <div class="cv-entry">
-          <div class="cv-ttl" style="font-size:0.88rem;line-height:1.4;">"The analysis and interpretation of quality cost using rough set theory"</div>
-          <div class="cv-sub">IJSCOM, 2021 · Vol. 4(1), pp. 11–31</div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="cv-block">
-        <div class="cv-blk-ttl">Technical Skills</div>
-        <div class="cv-entry">
-          <div class="cv-ttl" style="margin-bottom:0.45rem;">Programming Languages</div>
-          <div class="skill-wrap"><span class="stag">Python</span><span class="stag">R</span><span class="stag">Julia</span><span class="stag">MATLAB</span><span class="stag">SQL</span></div>
-        </div>
-        <div class="cv-entry">
-          <div class="cv-ttl" style="margin-bottom:0.45rem;">Frameworks & Tools</div>
-          <div class="skill-wrap"><span class="stag">PyTorch</span><span class="stag">Scikit-learn</span><span class="stag">Stata</span><span class="stag">LaTeX</span><span class="stag">Git</span></div>
-        </div>
-        <div class="cv-entry">
-          <div class="cv-ttl" style="margin-bottom:0.45rem;">Languages</div>
-          <div class="skill-wrap"><span class="stag">English (Fluent)</span><span class="stag">Persian / Farsi (Native)</span></div>
-        </div>
-      </div>
-      <div class="cv-block">
-        <div class="cv-blk-ttl">Academic Profiles</div>
-        <div class="cv-entry">
-          <div class="cv-desc">
-            <a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank" style="color:var(--accent);">Google Scholar</a> ·
-            <a href="https://www.researchgate.net/profile/Erfan-Zarafshan" target="_blank" style="color:var(--accent);">ResearchGate</a> ·
-            <a href="https://ideas.repec.org/f/pza461.html" target="_blank" style="color:var(--accent);">IDEAS/RePEC</a> ·
-            <a href="https://www.lsu.edu/business/directory/employee-profiles/zarafshan-erfan-economics.php" target="_blank" style="color:var(--accent);">LSU Profile</a>
+      <div class="paper">
+        <div class="paper-year">2021</div>
+        <div>
+          <div class="paper-status">Published</div>
+          <div class="paper-title">Resource Planning System for Organisations: A Soft Computing Approach</div>
+          <div class="paper-meta">
+            <strong>Erfan Zarafshan</strong>, Sina Gholami, Reza Sheikh, Shib Sankar Sana<br>
+            <em>International Journal of Services, Economics and Management</em>, Vol. 12(3), pp. 272–293
+          </div>
+          <div class="paper-abstract">
+            Develops a soft computing framework for organisational resource planning, combining fuzzy logic and heuristic methods to model uncertainty in service systems — offering a tractable alternative to rigid optimisation in incomplete-information environments.
           </div>
         </div>
       </div>
-      <div class="cv-block">
-        <div class="cv-blk-ttl">Awards & Service</div>
-        <div class="cv-entry">
-          <div class="cv-head"><div class="cv-ttl">Graduate Research Assistantship</div><div class="cv-yr">2023 –</div></div>
-          <div class="cv-sub">Department of Economics, LSU</div>
+
+      <div class="paper">
+        <div class="paper-year">2021</div>
+        <div>
+          <div class="paper-status">Published</div>
+          <div class="paper-title">The Analysis and Interpretation of Quality Cost Using Rough Set Theory: A Case Study from the Ceramic Industry</div>
+          <div class="paper-meta">
+            <strong>Erfan Zarafshan</strong>, Samira Rezaei Toroghi, Reza Sheikh, Shib Sankar Sana<br>
+            <em>International Journal of Service and Computing Oriented Manufacturing</em>, Vol. 4(1), pp. 11–31
+          </div>
+          <div class="paper-abstract">
+            Applies rough set theory to analyse quality cost structures in manufacturing. Using ceramic industry data, the paper extracts decision rules supporting quality management under real-world data imprecision.
+          </div>
         </div>
-        <div class="cv-entry">
-          <div class="cv-head"><div class="cv-ttl">[Add Fellowship / Award]</div><div class="cv-yr">20XX</div></div>
-          <div class="cv-sub">[Granting Institution]</div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-year">In progress</div>
+        <div>
+          <div class="paper-status">Working Paper</div>
+          <div class="paper-title">Add your dissertation chapter or working paper title here</div>
+          <div class="paper-meta">
+            <strong>Erfan Zarafshan</strong><br>
+            Department of Economics, Louisiana State University
+          </div>
+          <div class="paper-abstract">
+            Add a brief abstract of your current doctoral research. Two or three sentences describing the question, method, and contribution is ideal.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">About</div>
+
+    <div class="cv-group">
+      <div class="cv-group-title">Education</div>
+
+      <div class="cv-entry">
+        <div class="cv-year">2023 –</div>
+        <div>
+          <div class="cv-title">PhD in Economics</div>
+          <div class="cv-sub">Louisiana State University, Baton Rouge</div>
+          <div class="cv-desc">E. J. Ourso College of Business · Advisor: [Name]</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-year">2023 –</div>
+        <div>
+          <div class="cv-title">M.Sc. in Computer Science</div>
+          <div class="cv-sub">Louisiana State University, Baton Rouge</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-year">20XX</div>
+        <div>
+          <div class="cv-title">M.Sc. in Business Administration</div>
+          <div class="cv-sub">Shahrood University of Technology, Iran</div>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-year">20XX</div>
+        <div>
+          <div class="cv-title">B.Sc. in Mechanical Engineering</div>
+          <div class="cv-sub">Babol Noshirvani University of Technology, Iran</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- TEACHING -->
-<section id="teaching">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">04 · Teaching Experience</span></div>
-  <h2 class="stitle">Teaching <em>Experience</em></h2>
-  <div class="t-list">
-    <div class="t-row">
-      <span class="tbadge ta">TA</span>
-      <div><div class="t-crs">Principles of Microeconomics</div><div class="t-dept">Department of Economics · Louisiana State University</div></div>
-      <div class="t-yr">Add Semester</div>
+    <div class="cv-group">
+      <div class="cv-group-title">Research Interests</div>
+      <p style="font-size:0.88rem; color:var(--mid); line-height:1.8; max-width:520px;">
+        Economics of artificial intelligence &nbsp;·&nbsp; Computational economics &nbsp;·&nbsp;
+        Soft computing &nbsp;·&nbsp; Rough set theory &nbsp;·&nbsp; Decision science &nbsp;·&nbsp;
+        Behavioural economics &nbsp;·&nbsp; Machine learning
+      </p>
     </div>
-    <div class="t-row">
-      <span class="tbadge ta">TA</span>
-      <div><div class="t-crs">Principles of Macroeconomics</div><div class="t-dept">Department of Economics · Louisiana State University</div></div>
-      <div class="t-yr">Add Semester</div>
-    </div>
-    <div class="t-row">
-      <span class="tbadge ta">TA</span>
-      <div><div class="t-crs">[Add Your Course — replace this]</div><div class="t-dept">Louisiana State University</div></div>
-      <div class="t-yr">20XX</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">05 · Projects & Code</span></div>
-  <h2 class="stitle">Projects <em>&amp; Code</em></h2>
-  <div class="proj-grid">
-    <div class="pcard">
-      <div class="pcard-top"><span class="p-ico">🤖</span><span class="p-lng">Python · ML</span></div>
-      <div class="pcard-body">
-        <div class="pc-title">Economics of AI Simulations</div>
-        <div class="pc-desc">Computational models exploring AI adoption dynamics, labour market effects, and firm-level productivity in data-driven economies.</div>
-        <div class="ptags" style="display:flex;flex-wrap:wrap;gap:0.35rem;"><span class="ptag">Python</span><span class="ptag">Agent-Based Models</span><span class="ptag">AI Economics</span></div>
+  <!-- CV -->
+  <section id="cv">
+    <div class="section-label">Curriculum Vitae</div>
+
+    <p style="font-size:0.84rem; color:var(--mid); margin-bottom:2rem;">
+      Full CV available as
+      <a href="cv.pdf" style="color:var(--link); text-decoration:none; border-bottom:1px solid var(--link); padding-bottom:1px;">PDF download</a>.
+    </p>
+
+    <div class="cv-group">
+      <div class="cv-group-title">Publications</div>
+      <div class="cv-entry">
+        <div class="cv-year">2021</div>
+        <div>
+          <div class="cv-title" style="font-size:0.85rem;">"Resource planning system for organisations — a soft computing approach"</div>
+          <div class="cv-desc">IJSEM · Vol. 12(3), pp. 272–293 · 32+ citations</div>
+        </div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-year">2021</div>
+        <div>
+          <div class="cv-title" style="font-size:0.85rem;">"The analysis and interpretation of quality cost using rough set theory"</div>
+          <div class="cv-desc">IJSCOM · Vol. 4(1), pp. 11–31</div>
+        </div>
       </div>
     </div>
-    <div class="pcard">
-      <div class="pcard-top"><span class="p-ico">📐</span><span class="p-lng">R · Decision Science</span></div>
-      <div class="pcard-body">
-        <div class="pc-title">Rough Set Analysis Toolkit</div>
-        <div class="pc-desc">A modular implementation of rough set theory for economic data — extending methods from published research on quality cost and market segmentation.</div>
-        <div class="ptags" style="display:flex;flex-wrap:wrap;gap:0.35rem;"><span class="ptag">R</span><span class="ptag">Rough Sets</span><span class="ptag">Decision Analysis</span></div>
+
+    <div class="cv-group">
+      <div class="cv-group-title">Skills</div>
+      <div class="skill-row"><span class="skill-label">Languages</span><span class="skill-val">Python, R, Julia, MATLAB, SQL</span></div>
+      <div class="skill-row"><span class="skill-label">Tools</span><span class="skill-val">PyTorch, Scikit-learn, Stata, LaTeX, Git</span></div>
+      <div class="skill-row"><span class="skill-label">Human</span><span class="skill-val">English (fluent), Persian / Farsi (native)</span></div>
+    </div>
+
+    <div class="cv-group">
+      <div class="cv-group-title">Profiles</div>
+      <div class="skill-row">
+        <span class="skill-label">Scholar</span>
+        <span class="skill-val"><a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank" style="color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--link)'" onmouseout="this.style.borderColor='transparent'">Google Scholar</a></span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">RePEC</span>
+        <span class="skill-val"><a href="https://ideas.repec.org/f/pza461.html" target="_blank" style="color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--link)'" onmouseout="this.style.borderColor='transparent'">IDEAS/RePEC</a></span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">LSU</span>
+        <span class="skill-val"><a href="https://www.lsu.edu/business/directory/employee-profiles/zarafshan-erfan-economics.php" target="_blank" style="color:var(--link);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .15s;" onmouseover="this.style.borderColor='var(--link)'" onmouseout="this.style.borderColor='transparent'">Faculty Profile</a></span>
       </div>
     </div>
-    <div class="pcard">
-      <div class="pcard-top"><span class="p-ico">🧠</span><span class="p-lng">Python · NLP</span></div>
-      <div class="pcard-body">
-        <div class="pc-title">ML-Driven Market Segmentation</div>
-        <div class="pc-desc">Machine learning extension of multi-decision RST market segmentation, applied to consumer behaviour datasets with NLP-extracted features.</div>
-        <div class="ptags" style="display:flex;flex-wrap:wrap;gap:0.35rem;"><span class="ptag">Scikit-learn</span><span class="ptag">NLP</span><span class="ptag">Marketing Analytics</span></div>
+  </section>
+
+  <!-- TEACHING -->
+  <section id="teaching">
+    <div class="section-label">Teaching</div>
+
+    <div class="teaching-entry">
+      <div class="cv-year">Add year</div>
+      <div>
+        <div class="cv-title">Principles of Microeconomics</div>
+        <div class="cv-sub">Teaching Assistant · Louisiana State University</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- BLOG -->
-<section id="blog">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">06 · Notes & Writing</span></div>
-  <h2 class="stitle">Blog <em>&amp; Notes</em></h2>
-  <div class="blog-list">
-    <a class="bitem" href="#">
-      <div class="bdate"><div class="bmo">Apr</div><div class="bdy">24</div><div class="byr">2026</div></div>
-      <div><div class="btitle">Add your first post here</div><div class="bexc">Share a research note, tutorial, or reading summary. The CS/Econ intersection is underserved — your interdisciplinary perspective has real value.</div><div class="btags"><span class="tag">Research</span><span class="tag">Economics</span></div></div>
-    </a>
-    <a class="bitem" href="#">
-      <div class="bdate"><div class="bmo">Mar</div><div class="bdy">15</div><div class="byr">2026</div></div>
-      <div><div class="btitle">Rough Set Theory for Economists: A Primer</div><div class="bexc">An accessible introduction to rough set theory for social scientists — covering key concepts and how they apply to imprecise economic data and real-world decision analysis.</div><div class="btags"><span class="tag">Tutorial</span><span class="tag">Rough Sets</span><span class="tag">Methods</span></div></div>
-    </a>
-    <a class="bitem" href="#">
-      <div class="bdate"><div class="bmo">Feb</div><div class="bdy">08</div><div class="byr">2026</div></div>
-      <div><div class="btitle">From Engineering to Economics: Why the Path Matters</div><div class="bexc">Reflections on the intellectual advantages of an interdisciplinary background — and what a mechanical engineer brings to economic research that pure economists often miss.</div><div class="btags"><span class="tag">Personal</span><span class="tag">Academia</span></div></div>
-    </a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="slabel"><div class="slabel-line"></div><span class="slabel-txt">07 · Contact</span></div>
-  <h2 class="stitle">Get in <em>Touch</em></h2>
-  <div class="ct-grid">
-    <div>
-      <p class="ct-intro">"Always happy to discuss research ideas, potential collaborations, or opportunities at the intersection of economics and computation."</p>
-      <div class="ct-row"><div class="ct-ico">✉</div><div class="ct-key">Email</div><div class="ct-val"><a href="mailto:ezaraf1@lsu.edu">ezaraf1@lsu.edu</a></div></div>
-      <div class="ct-row"><div class="ct-ico">🏛</div><div class="ct-key">Office</div><div class="ct-val">Dept. of Economics · LSU · Baton Rouge, LA 70803</div></div>
-      <div class="ct-row"><div class="ct-ico">🎓</div><div class="ct-key">Scholar</div><div class="ct-val"><a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank">Google Scholar Profile →</a></div></div>
-      <div class="ct-row"><div class="ct-ico">🔬</div><div class="ct-key">ResearchGate</div><div class="ct-val"><a href="https://www.researchgate.net/profile/Erfan-Zarafshan" target="_blank">ResearchGate Profile →</a></div></div>
-      <div class="soc-grid">
-        <a class="sbtn" href="https://github.com/ErfanZarafshan" target="_blank"><span class="sb-ico">⌥</span><div><div class="sb-lbl">GitHub</div><span class="sb-hdl">ErfanZarafshan</span></div></a>
-        <a class="sbtn" href="https://linkedin.com/in/erfanzarafshan" target="_blank"><span class="sb-ico">in</span><div><div class="sb-lbl">LinkedIn</div><span class="sb-hdl">in/erfanzarafshan</span></div></a>
-        <a class="sbtn" href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank"><span class="sb-ico">𝒢</span><div><div class="sb-lbl">Google Scholar</div><span class="sb-hdl">32+ citations</span></div></a>
-        <a class="sbtn" href="https://twitter.com/ErfanZarafshan" target="_blank"><span class="sb-ico">𝕏</span><div><div class="sb-lbl">Twitter / X</div><span class="sb-hdl">@ErfanZarafshan</span></div></a>
+    <div class="teaching-entry">
+      <div class="cv-year">Add year</div>
+      <div>
+        <div class="cv-title">Principles of Macroeconomics</div>
+        <div class="cv-sub">Teaching Assistant · Louisiana State University</div>
       </div>
     </div>
-    <div>
-      <div class="status-box">
-        <div class="sb-ttl">Currently Open To</div>
-        <ul class="sb-list">
-          <li><span class="sdot"></span>Research collaborations in economics of AI</li>
-          <li><span class="sdot"></span>Summer internships — industry or research labs</li>
-          <li><span class="sdot"></span>Conference presentations &amp; academic workshops</li>
-          <li><span class="sdot"></span>Joint work on computational economics methods</li>
-          <li><span class="sdot"></span>Academic visits &amp; seminar invitations</li>
-        </ul>
-      </div>
-      <div style="margin-top:1.4rem; padding:1.4rem; border:1px solid rgba(255,255,255,0.06); border-radius:5px;">
-        <div class="sb-ttl">Current Affiliation</div>
-        <div style="font-family:var(--serif);font-size:1.05rem;color:#fff;margin-bottom:0.25rem;">E. J. Ourso College of Business</div>
-        <div style="font-size:0.8rem;color:rgba(255,255,255,0.4);font-style:italic;margin-bottom:0.8rem;">Louisiana State University · Baton Rouge, Louisiana</div>
-        <div style="font-family:var(--mono);font-size:0.6rem;color:rgba(255,255,255,0.28);letter-spacing:0.05em;">PhD Economics · M.Sc. Computer Science</div>
+
+    <div class="teaching-entry">
+      <div class="cv-year">20XX</div>
+      <div>
+        <div class="cv-title">Add your course name here</div>
+        <div class="cv-sub">Role · Institution</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © 2026 Erfan Zarafshan ·
-  <a href="https://ErfanZarafshan.github.io">ErfanZarafshan.github.io</a> ·
-  Built with GitHub Pages · Last updated April 2026
-</footer>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">Projects</div>
 
+    <div class="cv-entry">
+      <div class="cv-year">2024</div>
+      <div>
+        <div class="cv-title">Rough Set Analysis Toolkit</div>
+        <div class="cv-sub">R · Decision science implementation extending published research on quality cost and market segmentation.</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2024</div>
+      <div>
+        <div class="cv-title">Economics of AI Simulations</div>
+        <div class="cv-sub">Python · Agent-based models of AI adoption dynamics and firm-level productivity.</div>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-year">2023</div>
+      <div>
+        <div class="cv-title">ML Market Segmentation</div>
+        <div class="cv-sub">Python · Machine learning extension of multi-decision RST to consumer behaviour datasets.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- WRITING -->
+  <section id="writing">
+    <div class="section-label">Writing</div>
+
+    <div class="blog-entry">
+      <div class="blog-date">Apr 2026</div>
+      <div>
+        <div class="blog-title"><a href="#">Add your first post here</a></div>
+        <div class="blog-excerpt">A research note, tutorial, or paper summary. Short, focused posts build an audience and sharpen your thinking.</div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <div class="blog-date">Mar 2026</div>
+      <div>
+        <div class="blog-title"><a href="#">Rough Set Theory for Economists</a></div>
+        <div class="blog-excerpt">An accessible primer on rough set theory and how it applies to economic data with imprecision or missing values.</div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <div class="blog-date">Feb 2026</div>
+      <div>
+        <div class="blog-title"><a href="#">From Engineering to Economics</a></div>
+        <div class="blog-excerpt">Reflections on an interdisciplinary path — and what mechanical thinking brings to economic research.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">Contact</div>
+
+    <div class="contact-grid">
+      <span class="ct-key">Email</span>
+      <span class="ct-val"><a href="mailto:ezaraf1@lsu.edu">ezaraf1@lsu.edu</a></span>
+
+      <span class="ct-key">Office</span>
+      <span class="ct-val">Dept. of Economics · LSU · Baton Rouge, LA 70803</span>
+
+      <span class="ct-key">Scholar</span>
+      <span class="ct-val"><a href="https://scholar.google.com/citations?user=LCjz0r4AAAAJ&hl=en" target="_blank">Google Scholar</a></span>
+
+      <span class="ct-key">GitHub</span>
+      <span class="ct-val"><a href="https://github.com/ErfanZarafshan" target="_blank">ErfanZarafshan</a></span>
+
+      <span class="ct-key">LinkedIn</span>
+      <span class="ct-val"><a href="https://linkedin.com/in/erfanzarafshan" target="_blank">in/erfanzarafshan</a></span>
+
+      <span class="ct-key">Twitter</span>
+      <span class="ct-val"><a href="https://twitter.com/ErfanZarafshan" target="_blank">@ErfanZarafshan</a></span>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Erfan Zarafshan &nbsp;·&nbsp; Louisiana State University
+  </footer>
+
+</main>
 </body>
 </html>
